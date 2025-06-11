@@ -1,24 +1,22 @@
-package org.example.flashcard_fx.util;
-
-import org.example.flashcard_fx.FlashCard;
+package org.example.flashcard_fx.model;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class CardList {
-    private List<FlashCard> CardList;
+    private static List<FlashCard> CardList;
 
     public CardList(){
         CardList = new ArrayList<>();
     }
 
-    public CardList(List<FlashCard> CardList){
+    public  CardList(List<FlashCard> CardList){
         this.CardList = CardList;
     }
-    public List<FlashCard> getCardList() {
+    public static List<FlashCard> getCardList() {
         return CardList;
     }
-    public void setCardList(List<FlashCard> cardList) {
+    public static void setCardList(List<FlashCard> cardList) {
         CardList = cardList;
     }
 

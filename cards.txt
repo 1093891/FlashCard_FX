@@ -1,0 +1,9 @@
+Capital City of Japan  ::: Tokyo
+Capital City of Germany  ::: Berlin
+Capital City of Italy  ::: Rome
+Capital City of Spain  ::: Madrid
+Capital City of Canada  ::: Ottawa
+Capital City of Australia  ::: Canberra
+Capital City of India :::  New Delhi
+Capital City of Brazil :::  Brasília
+Capital City of Russia :::  Moscow

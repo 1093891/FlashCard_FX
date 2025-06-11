@@ -1,30 +1,20 @@
-package org.example.flashcard_fx;
-
-import java.util.HashMap;
+package org.example.flashcard_fx.model;
 
 public class FlashCard {
-    private int cardId;
     private String frontCard;
     private String backCard;
-
 
 
     public FlashCard() {
 
     }
 
-    public FlashCard(int cardId, String cardName, String cardValue) {
-        this.cardId = cardId;
+    public FlashCard( String cardName, String cardValue) {
         this.frontCard = cardName;
         this.backCard =  cardValue;
 
     }
 
-
-    // setter methods
-    public void setCardId(int cardId) {
-        this.cardId = cardId;
-    }
     public void setFrontCard(String frontCard) {
         this.frontCard = frontCard;
     }
@@ -32,10 +22,6 @@ public class FlashCard {
         this.backCard = backCard;
     }
 
-    // getter methods
-    public int getCardId() {
-        return cardId;
-    }
     public String getFrontCard() {
         return frontCard;
     }
@@ -44,7 +30,7 @@ public class FlashCard {
     }
     @Override
     public String toString() {
-        return getCardId()+" "+getFrontCard()+" "+getBackCard();
+        return getFrontCard()+" "+getBackCard();
     }
 
 }
