@@ -7,3 +7,5 @@ Capital City of Australia  ::: Canberra
 Capital City of India :::  New Delhi
 Capital City of Brazil :::  Brasília
 Capital City of Russia :::  Moscow
+Capital City of France:::Paris
+Capital City of Ethiopia:::Addis Ababa

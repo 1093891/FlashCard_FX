@@ -1,6 +1,7 @@
 package org.example.flashcard_fx.gui;
 
 import javafx.application.Application;
+import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Node;
 import javafx.scene.control.*;
@@ -19,6 +20,7 @@ public class FlashGui extends Application {
     private VBox front;
     private VBox back;
     private GridPane gridLayout;
+    private GridPane addCardLayout;
 
     private SystemLoader systemLoader;
     private int currentCard = 0;
@@ -30,6 +32,7 @@ public class FlashGui extends Application {
         front = new VBox();
         back = new VBox();
         gridLayout = new GridPane();
+        addCardLayout= new GridPane();
 
 
         initialize();
@@ -105,6 +108,49 @@ public class FlashGui extends Application {
 
     }
     public void addCard(){
+        addCardLayout.getChildren().clear();
+
+        Label frontLabel = new Label("Front:");
+        Label backLabel = new Label("Back:");
+        TextField frontField = new TextField();
+        TextField backField = new TextField();
+        Button saveButton = new Button("Save");
+        saveButton.setOnAction(e ->{
+           String frontText = frontField.getText();
+           String backText = backField.getText();
+           if(!(frontText.isEmpty() || backText.isEmpty())){
+               CardList.getCardList().add(new FlashCard(frontText,backText));
+               new Alert(Alert.AlertType.INFORMATION, "The card added successfully").showAndWait();
+               setFrontCard();
+           }
+          else {
+            new Alert(Alert.AlertType.ERROR, "Please fill in both fields.").showAndWait();
+            setFrontCard();
+          }
+        });
+        addCardLayout.add(frontLabel, 0, 0);
+        addCardLayout.add(frontField, 1, 0);
+        addCardLayout.add(backLabel, 0, 1);
+        addCardLayout.add(backField, 1, 1);
+        addCardLayout.add(saveButton, 1, 2);
+        addCardLayout.setHgap(10);
+        addCardLayout.setVgap(10);
+        addCardLayout.setAlignment(Pos.CENTER);
+        addCardLayout.setPadding(new Insets(10,10,10,10));
+        for(Node node : addCardLayout.getChildren()){
+            if(node instanceof Button){
+                Button button = (Button) node;
+                button.setStyle("-fx-font-size: 15; -fx-text-alignment: center; -fx-text-fill: #0a0a0a;-fx-font-weight: bold; -fx-start-margin: 10px; ");
+                button.setPrefSize(100,50);
+            }
+            else if(node instanceof TextField){
+                TextField textField = (TextField) node;
+                textField.setStyle("-fx-font-size: 15; -fx-text-alignment: center; -fx-text-fill: #0a0a0a;-fx-font-weight: bold; -fx-start-margin: 10px; ");
+            }
+        }
+        mainPane.setCenter(addCardLayout);
+        mainPane.getCenter().setStyle("-fx-background-color: #9d8b5d");
+
     }
     public void deleteCard(){
         if(!CardList.getCardList().isEmpty() && currentCard < CardList.getCardList().size()){
@@ -174,6 +220,7 @@ public class FlashGui extends Application {
     public BorderPane getView(){
         return mainPane;
     }
+
 
     @Override
     public void start(Stage primaryStage) {
